@@ -5,6 +5,13 @@
 **Environment:** Python 3.12.3 | NumPy 2.1.3 | SciPy 1.14.1  
 **Status:** Verified (8/8 Unit & Integration Tests Passing | Reproducible Benchmarks)
 
+
+## 💡 Key Features & Highlights
+* **High Precision:** Implements robust numerical methods for precise half-space projections.
+* **Modular Architecture:** Clean code structure allowing easy extension of safety bounds.
+* **Reproducibility:** Complete documentation and verification logs included to replicate results effortlessly.
+
+
 A compact Python engineering implementation of Euclidean projection onto a single linear half-space and intersections of linear half-spaces. It demonstrates exact single-constraint projection, Dykstra's classical cyclic projection algorithm, independent post-hoc feasibility checks, and paired benchmark comparisons with SciPy's SLSQP solver. This repository is an implementation and numerical verification package—not a novel optimization algorithm and not a proof of long-term closed-loop safety.
 
 ## Scope and limitations
@@ -59,3 +66,16 @@ python safegen_sbp.py | tee results/final_verification.log
 ## License status
 
 No license grant was supplied in the original project materials. See `docs/license_decision.md`: MIT is recommended if permissive open-source release is desired, but no license is asserted until confirmed by the copyright holder.
+
+
+---
+
+## 🤝 Contributing & Contact
+Contributions, suggestions, and feedback are always welcome! Feel free to open an issue or submit a pull request.
+
+* **Author:** Mobin Khorshidvand[cite: 3]
+* **GitHub:** [Mobin-Khorshidvand](https://github.com/Mobin-Khorshidvand)
+* **LinkedIn:** [Profile Link](https://www.linkedin.com/in/mobin-khorshidvand-50459122a)
+
+⭐ If you found this project useful, please consider giving it a star on GitHub!
+
