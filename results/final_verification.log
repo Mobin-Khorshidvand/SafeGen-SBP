@@ -1,0 +1,28 @@
+========================================================================
+SAFEGEN-SBP: 8 VERIFICATION TESTS
+========================================================================
+[PASS] Test 1: exact 2D projection [4,5] -> [1.5,2.5] and boundary
+[PASS] Test 2: safe input remains bitwise unchanged
+[PASS] Test 3: zero/NaN/Inf normals, incompatible dimensions, and invalid tolerances/budgets rejected explicitly
+[PASS] Test 4: valid 1e-6 normal works; 1e-8 normal rejected by documented squared-norm cutoff
+[PASS] Test 5: large-scale 2D normal projects [4,3] to [2,3]
+[PASS] Test 6: Dykstra feasible; SLSQP success; L_inf solution gap=1.152855588771e-12 (<1.1e-9)
+[PASS] Test 7: contradictory example not certified; 50 cycles, signed max violation=3; no infeasibility claim
+[PASS] Test 8: one-cycle cap distinct from safety; converged=False, feasible=False, violation=2.32
+========================================================================
+SAFEGEN-SBP: REPRODUCIBLE BENCHMARKS
+========================================================================
+Environment: Python 3.12.3 | NumPy 2.1.3 | SciPy 1.14.1
+Seeds: [42, 43, 44, 45, 46]; RNG: numpy.random.default_rng(seed)
+Benchmark 1: n=50, 5 seeds x 1000 samples=5000; ||g||2=1e-6; beta=0; theta~N(0.5,1.0). Rates shown mean +/- population SD of five per-seed rates.
+  raw: violation_rate=52.200000% +/- 20.801250%; mean_of_per_seed_max_violation=3.334013636005e-06
+  legacy +1e-12 (reconstructed): violation_rate=52.200000% +/- 20.801250%; mean_of_per_seed_max_violation=1.667006818003e-06
+  exact: violation_rate=0.000000% +/- 0.000000%; mean_of_per_seed_max_violation=1.072201025912e-21
+  legacy: mean of per-seed max Euclidean gaps to exact=1.667006818003e+00
+Benchmark 2: n=20, m=21; constraints sum(x)<=15 and -x_i<=0; 5 seeds x 200=1000 identical inputs; theta~N(1,2); Dykstra step_tol=1e-8, feas_tol=1e-7, max_iters=500; SLSQP ftol=1e-12, maxiter=500.
+  Timing: sequential per-sample time.perf_counter, one pass (no warm-up/repeat); timing is environment-specific.
+  Dykstra certified feasible: 1000/1000; max violation=9.999362582391e-08; mean iterations=27.945000; mean time=13.620408 ms/sample
+  SLSQP success: 1000/1000; max violation=1.044497821567e-12; mean time=0.475233 ms/sample
+  max L_inf solution gap on jointly successful cases=1.632513857430e-08
+  empirical ratio SLSQP/Dykstra=0.034891x (not a general performance claim)
+========================================================================
